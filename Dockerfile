@@ -4,6 +4,7 @@ FROM pytorch/pytorch:latest
 # 更新软件包列表并安装依赖
 RUN apt-get update && apt-get install -y \
     libglib2.0-0 \
+    libgl1-mesa-glx \
     libsm6 libxext6 libxrender-dev wget \
     && rm -rf /var/lib/apt/lists/*
  
