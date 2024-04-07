@@ -13,7 +13,7 @@ COPY requirements.txt .
 RUN conda create -n ootd python==3.10
 #RUN conda info | grep -i "base environment"
 RUN /bin/bash -c "source /opt/conda/etc/profile.d/conda.sh"
-#RUN conda activate ootd
+RUN conda activate ootd
 RUN pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2
 RUN pip install -r requirements.txt
  
@@ -31,4 +31,5 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
  
 # 运行OOTDiffusion模型
-CMD ["python", "/app/run/run_ootd.py"]
+# CMD ["python", "/app/run/run_ootd.py"]
+CMD ["python", "/app/run/gradio_ootd.py"]
