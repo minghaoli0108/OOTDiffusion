@@ -11,8 +11,8 @@ RUN apt-get update && apt-get install -y \
 # 安装Python依赖
 COPY requirements.txt .
 RUN conda update conda
-#RUN conda create -n ootd python==3.10 ; conda activate ootd ; pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 ; pip install -r requirements.txt
-RUN conda create -n ootd python==3.10 ; conda activate ootd ; pip install torch torchvision torchaudio ; pip install -r requirements.txt
+#RUN conda init ootd ; conda create -n ootd python==3.10 ; conda activate ootd ; pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 ; pip install -r requirements.txt
+RUN conda init ootd ; conda create -n ootd python==3.10 ; conda activate ootd ; pip install torch torchvision torchaudio ; pip install -r requirements.txt
 #RUN conda info | grep -i "base environment"
 #RUN /bin/bash -c "source /opt/conda/etc/profile.d/conda.sh"
 #RUN conda create -n ootd python==3.10
