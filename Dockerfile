@@ -1,12 +1,17 @@
 # 基于官方的PyTorch镜像
-# FROM pytorch/pytorch:latest
-FROM ghcr.io/ai-dock/jupyter-pytorch:2.2.0-py3.10-cuda-11.8.0-runtime-22.04
+FROM pytorch/pytorch:latest
+# FROM ghcr.io/ai-dock/jupyter-pytorch:2.2.0-py3.10-cuda-11.8.0-runtime-22.04
 
 # 更新软件包列表并安装依赖
 RUN apt-get update && apt-get install -y \
     libglib2.0-0 \
     libgl1-mesa-glx \
     libsm6 libxext6 libxrender-dev wget \
+    nvidia-cuda-toolkit \
+    build-essential \
+    pkg-config libglvnd-dev \
+    nvidia-container-cli \
+    nvidia-container-runtime \
     && rm -rf /var/lib/apt/lists/*
  
 # 安装Python依赖
